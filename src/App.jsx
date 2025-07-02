@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import Navbar from './components/navbar/Navbar'; // Importe o componente que criamos
+import Navbar from './components/navbar/navbar.jsx'; // Importe o componente que criamos
 import './App.css'; // Estilos globais (pode deixar, mas nosso foco é o da navbar)
 
 function App() {
