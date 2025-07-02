@@ -1,0 +1,67 @@
+.navbar-container {
+  display: flex; /* alinha os filhos (logo, links, actions) em uma linha */
+  justify-content: space-between; /* alinha os elementos em linha e separa por espaços */
+  align-items: center; /* Alinha tudo no centro verticalmente */
+  padding: 1rem 2rem; /* Espaçamento interno: 1rem em cima/baixo, 2rem nas laterais */
+  background-color: #D1C4E9; /* Nosso Lilás Suave da paleta */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Uma fonte limpa e moderna */
+}
+
+/* Estilo do Logo */
+.navbar-logo a {
+  font-weight: bold;
+  font-size: 1.5rem; /* 24px */
+  color: #424242; /* Grafite Aconchegante */
+  text-decoration: none;
+}
+
+/* Estilo dos Links de Navegação */
+.navbar-links a {
+  margin: 0 1rem; /* Espaçamento entre os links (0 em cima/baixo, 1rem nas laterais) */
+  font-size: 1rem; /* 16px */
+  color: #424242;
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: border-bottom 0.25s ease-in-out; /* Animação suave */
+}
+
+.navbar-links a:hover {
+  border-bottom: 2px solid #B53389; /* Borda Magenta ao passar o mouse */
+  color: #000;
+}
+
+/* Container das ações para alinhar o botão e o ícone */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Espaçamento entre o botão e o ícone */
+}
+
+/* Botão de Login */
+.login-button {
+  padding: 0.6rem 1.2rem; /* Espaçamento interno do botão */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #F8F7FA;
+  background-color: #B53389; /* Nosso Magenta Vibrante */
+  border: none;
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave como na imagem */
+  transition: transform 0.25s ease-in-out;
+}
+
+.login-button:hover {
+  transform: translateY(-2px); /* Efeito de "levantar" ao passar o mouse */
+}
+
+/* Ícone de Configurações */
+.settings-icon {
+  color: #424242; /* Grafite Aconchegante */;
+  display: flex;
+  align-items: center;
+}
+
+.settings-icon:hover {
+  color: #000;
+}
