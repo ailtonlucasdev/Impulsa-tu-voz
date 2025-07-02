@@ -5,6 +5,9 @@
   padding: 1rem 2rem; /* Espaçamento interno: 1rem em cima/baixo, 2rem nas laterais */
   background-color: #D1C4E9; /* Nosso Lilás Suave da paleta */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Uma fonte limpa e moderna */
+  width: 100%;
+  /* max-width: 1400px; Não usar*/
+  margin: 0 auto;
 }
 
 /* Estilo do Logo */
