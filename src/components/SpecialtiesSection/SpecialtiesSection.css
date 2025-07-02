@@ -1,0 +1,60 @@
+.specialties-container {
+  padding: 4rem 2rem;
+  background-color: #f7f5fa; /* Fundo */
+}
+
+.specialties-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.specialties-header .pre-title {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.specialties-header h2 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+.specialties-grid {
+  display: grid;
+  /* colunas responsivas: no mínimo 180px, mas se ajustam para preencher o espaço */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem; /* Espaço entre os cards */
+  max-width: 1000px;
+  margin: 0 auto; /* Centraliza a grade */
+}
+
+.specialty-card {
+  background-color: #E1BEE7; /* Lilás dos cards */
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.specialty-icon {
+  color: #5E3A52; /* Roxo Sóbrio para o ícone */
+  margin-bottom: 1rem;
+}
+
+.specialty-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5E3A52;
+}
