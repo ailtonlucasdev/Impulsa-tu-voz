@@ -2,21 +2,21 @@
 
 /* O fundo desfocado que cobre a tela inteira */
 .modal-backdrop {
-  position: fixed; /* Fica fixo na tela */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo preto semitransparente */
-  
-  /* A mágica do desfoque */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Garante que fique acima de tudo */
+  
+  overflow-y: auto;
+  z-index: 1000;
 }
 
 /* O conteúdo do modal (a caixa branca) */
@@ -26,8 +26,8 @@
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 900px; /* Largura máxima do modal */
-  position: relative; /* Para posicionar o botão de fechar */
+  max-width: 900px;
+  position: relative;
 }
 
 .modal-body {
@@ -51,7 +51,6 @@
   background-size: 16px 16px;
 }
 
-/* Botão de fechar (X) */
 .close-button {
   position: absolute;
   top: 1rem;
@@ -63,7 +62,6 @@
   cursor: pointer;
 }
 
-/* Estilos do formulário */
 .register-form {
   display: flex;
   flex-direction: column;
@@ -105,7 +103,7 @@
 }
 
 .form-btn-primary {
-  background-color: #B53389; /* Cor magenta da paleta */
+  background-color: #B53389;
   color: white;
 }
 
@@ -114,12 +112,42 @@
   color: #333;
 }
 
-/* Responsividade para o modal */
+
+/* --- AJUSTES FINAIS PARA RESPONSIVIDADE --- */
 @media (max-width: 768px) {
   .image-column {
     display: none; /* Esconde a imagem em telas menores */
   }
+
+  .modal-backdrop {
+    /* MUDANÇA: Remove o alinhamento flex para deixar o scroll fluir naturalmente */
+    display: block;
+    /* Adiciona padding para criar uma margem segura à volta */
+    padding: 1.5rem 1rem; 
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+  }
+
   .modal-content {
+    /* Centraliza o modal horizontalmente agora que o pai não é mais flex */
+    margin: 0 auto;
     padding: 1.5rem;
+    width: 100%; /* Ocupa a largura disponível dentro do padding do backdrop */
+  }
+
+  .form-column h2 {
+    font-size: 1.5rem; /* Diminui o título principal */
+  }
+
+  .form-group {
+    gap: 0.5rem; /* Diminui o espaçamento dentro dos grupos do formulário */
+  }
+
+  .form-group label {
+    font-size: 0.9rem; /* Diminui o texto da label */
+  }
+
+  .form-buttons {
+    flex-direction: column; /* Empilha os botões para economizar espaço horizontal */
+    gap: 1rem;
   }
 }
