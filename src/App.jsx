@@ -1,15 +1,16 @@
-import Navbar from './components/navbar/navbar.jsx';
+import React from 'react';
+import Navbar from './components/Navbar/Navbar.jsx';
 import HeroSection from './components/HeroSection/HeroSection.jsx';
 import SpecialtiesSection from './components/SpecialtiesSection/SpecialtiesSection.jsx';
-import './App.css'; // Estilos globais
+import './App.css'; // Importação do seu CSS global.
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <main style={{ padding: '0.1rem' }}>
-        <HeroSection></HeroSection>
-        <SpecialtiesSection></SpecialtiesSection>
+      <Navbar />{}
+      <main>
+        <HeroSection />
+        <SpecialtiesSection />
       </main>
     </div>
   );
