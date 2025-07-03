@@ -1,0 +1,53 @@
+.partners-section {
+  padding: 4rem 0; /* Apenas espaçamento vertical */
+  background-color: #f7f5fa;
+  overflow: hidden; /* Essencial para o efeito de marquee */
+}
+
+.partners-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.marquee-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  /* A animação 'scroll' é definida abaixo */
+  animation: scroll 30s linear infinite;
+}
+
+/* Pausa a animação quando o mouse está sobre ela */
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.partner-logo-placeholder {
+  flex-shrink: 0; /* Impede que os logos encolham */
+  width: 180px;
+  height: 80px;
+  margin: 0 2rem; /* Espaço entre os logos */
+  background-color: #e0e0e0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* A animação que move o conteúdo da esquerda para a direita */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move o conteúdo para a esquerda pela metade do seu comprimento total.
+       Como duplicamos a lista, isso cria um loop perfeito. */
+    transform: translateX(-50%);
+  }
+}
