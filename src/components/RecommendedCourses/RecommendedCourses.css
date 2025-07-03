@@ -51,3 +51,32 @@
   background-color: #f1f1f1;
   border-color: #aaa;
 }
+
+/* --- ADIÇÕES PARA RESPONSIVIDADE --- */
+@media screen and (max-width: 768px) {
+  .courses-section {
+    /* Diminui o espaçamento geral da seção */
+    padding: 3rem 1rem;
+  }
+
+  .courses-wrapper {
+    /* Diminui o espaçamento interno do container lilás */
+    padding: 1.5rem 1rem;
+  }
+
+  .section-main-title {
+    /* Diminui o tamanho do título principal */
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    /* Diminui o tamanho do subtítulo */
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .courses-grid {
+    /* Diminui o espaço entre os cards */
+    gap: 1rem;
+  }
+}
