@@ -77,3 +77,31 @@
   line-height: 1.5;
   margin: 0;
 }
+
+
+/* --- ADIÇÕES PARA RESPONSIVIDADE --- */
+@media screen and (max-width: 768px) {
+  .support-section {
+    /* Diminui o espaçamento geral da seção */
+    padding: 3rem 1rem;
+  }
+
+  .support-header h2 {
+    /* Diminui o tamanho do título */
+    font-size: 1.8rem;
+  }
+  
+  .support-header p {
+    font-size: 1rem;
+  }
+
+  .support-wrapper {
+    /* Diminui o espaçamento interno do container lilás */
+    padding: 1.5rem 1rem;
+  }
+
+  .support-grid {
+    /* Diminui o espaço entre os cards */
+    gap: 1rem;
+  }
+}
