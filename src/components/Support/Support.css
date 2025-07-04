@@ -1,0 +1,79 @@
+/* src/components/Support/Support.css */
+.support-section {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+}
+
+.support-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.support-header h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.support-header p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.support-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #EDE7F6; /* Lilás bem claro de fundo */
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.support-subtitle {
+  font-size: 1rem;
+  color: #5E3A52; /* Roxo sóbrio */
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.support-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.support-image-placeholder {
+  height: 140px;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                    linear-gradient(-45deg, #ccc 25%, transparent 25%);
+  background-size: 16px 16px;
+}
+
+.support-card-content {
+  padding: 1.5rem;
+}
+
+.support-card-content h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.support-card-content p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
