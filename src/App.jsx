@@ -9,6 +9,8 @@ import Navbar from './components/Navbar/Navbar.jsx';
 import HeroSection from './components/HeroSection/HeroSection.jsx';
 import SpecialtiesSection from './components/SpecialtiesSection/SpecialtiesSection.jsx';
 import RecommendedCourses from './components/RecommendedCourses/RecommendedCourses.jsx';
+import Testimonials from './components/Testimonials/Testimonials.jsx';
+import Support from './components/Support/Support.jsx';
 import PlatformFeatures from './components/PlatformFeatures/PlatformFeatures.jsx';
 import PartnersMarquee from './components/PartnersMarquee/PartnersMarquee.jsx';
 import Footer from './components/Footer/Footer.jsx';
@@ -32,6 +34,8 @@ function App() {
         <HeroSection />
         <SpecialtiesSection />
         <RecommendedCourses />
+        <Testimonials />
+        <Support />
         <PlatformFeatures />
         <PartnersMarquee />
       </main>
