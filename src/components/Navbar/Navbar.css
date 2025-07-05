@@ -1,11 +1,16 @@
 .navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #D1C4E9;
   padding: 1rem 2rem;
-  position: relative; /* Necessário para o posicionamento do menu mobile */
+  /* position: relative; Necessário para o posicionamento do menu mobile */
   z-index: 100;
 }
 
 .navbar-content {
+
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
