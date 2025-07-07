@@ -1,8 +1,12 @@
 /* src/components/CoursesNavbar/CoursesNavbar.css */
 .courses-navbar-container {
-  background-color: #EDE7F6; /* Um lilás um pouco mais claro */
+  background-color: #D1C4E9; /* Um lilás um pouco mais claro */
   padding: 1rem 2rem;
-  border-bottom: 1px solid #D1C4E9;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .courses-navbar-content {

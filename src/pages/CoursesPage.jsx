@@ -25,12 +25,12 @@ function CoursesPage({ onLoginClick, onRegisterClick }) {
     <>
       <CoursesNavbar onLoginClick={onLoginClick} onRegisterClick={onRegisterClick} />
       <main>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
-          <h1>Nossos Cursos</h1>
-          <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem' }}>
         </div>
         <Filters />
+          <h1>Nossos Cursos</h1>
         {/* Esta div usa a classe 'courses-page-grid' do seu ficheiro CSS */}
+          <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
         <div className="courses-page-grid">
           {allCourses.map(course => (
             <CourseCard key={course.id} course={course} />
