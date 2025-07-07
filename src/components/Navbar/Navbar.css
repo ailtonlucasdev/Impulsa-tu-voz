@@ -1,12 +1,16 @@
+/* src/components/Navbar/Navbar.css */
+
 .navbar-container {
+  /* Propriedades para fixar a navbar no topo */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  
   background-color: #D1C4E9;
   padding: 1rem 2rem;
-  /* position: relative; Necessário para o posicionamento do menu mobile - NÃO ADICIONAR*/
   z-index: 100;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura */
 }
 
 .navbar-content {
@@ -22,149 +26,116 @@
   font-size: 1.5rem;
   color: #424242;
   text-decoration: none;
+  flex-shrink: 0; /* Impede que o logo seja esmagado */
 }
 
-.navbar-links {
-  display: flex; /* Por padrão, os links são em linha */
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.navbar-links a {
-  color: #424242;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-.navbar-links a:hover {
-  color: #5E3A52;
-}
-
-.navbar-actions {
+/* --- Estilos do Desktop --- */
+.desktop-nav {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.login-button {
+.desktop-nav a {
+  color: #424242;
+  text-decoration: none;
+}
+
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Botões (usados em ambas as vistas) --- */
+.nav-button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  color: #B53389;
-  background-color: #F8F7FA;
-  border: solid 1px;
+  font-weight: 600;
   border-radius: 8px;
-  border-color: #424242;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  width: 100%;
 }
-
-.login-button:hover {
-  transform: translateY(-2px);
-}
-
-/* Botão de Registro */
-
-.register-button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  color: #F8F7FA;
+.nav-button.primary {
   background-color: #B53389;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  color: white;
 }
-
-.register-button:hover {
-  transform: translateY(-2px);
+.nav-button.secondary {
+  border-color: #B53389;
+  color: #5E3A52;
+  background-color: white;
 }
 
 .settings-icon {
   color: #424242;
+  display: flex;
+  align-items: center;
 }
 
-/* Escondemos por padrão os elementos que são só para o mobile */
-.menu-icon, .login-button-mobile {
+/* --- Itens do Mobile (escondidos por padrão) --- */
+.menu-icon,
+.mobile-menu {
   display: none;
-  cursor: pointer;
 }
+.menu-icon { cursor: pointer; }
 
 
-/* --- A MÁGICA DA RESPONSIVIDADE --- */
-@media screen and (max-width: 768px) {
-
-  /* 1. Escondemos os links e ações da versão desktop */
-  .navbar-links {
-    display: none; /* A NAV inteira some */
-  }
-  .navbar-actions {
-    display: none; /* As ações da direita somem */
+/* --- RESPONSIVIDADE --- */
+@media screen and (max-width: 992px) {
+  
+  /* 1. Esconde os elementos do desktop */
+  .desktop-nav,
+  .desktop-actions {
+    display: none;
   }
   
-  /* 2. Mostramos o ícone de hambúrguer */
+  /* 2. Mostra o ícone do menu hambúrguer */
   .menu-icon {
-    display: block; /* O ícone aparece */
+    display: block;
+    z-index: 1100;
+    position: relative;
   }
   
-  /* 3. Estilizamos como o menu DEVE APARECER quando estiver ativo */
-  .navbar-links.active {
-    /* Layout */
+  /* 3. Estiliza o menu overlay QUANDO ele está aberto (.active) */
+  .mobile-menu.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    
-    /* Posição e Tamanho (Overlay) */
-    position: fixed; /* Fixo na tela, mesmo com rolagem */
+    gap: 1.5rem;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    
-    /* Aparência */
-    background: rgba(233, 222, 243, 0.95); /* Fundo lilás translúcido */
-    backdrop-filter: blur(8px); /* Efeito de vidro fosco */
-    -webkit-backdrop-filter: blur(8px);
-    
-    /* Animação */
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(0%); /* Posição visível */
-    z-index: 1000; /* Garante que o menu fique acima de tudo */
+    background: rgba(233, 222, 243, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 1rem;
   }
 
-  .navbar-links.active a {
-    font-size: 1.3rem;
+  .mobile-menu a {
+    font-size: 1.5rem;
+    color: #424242;
+    text-decoration: none;
   }
   
+  .mobile-menu-divider {
+    width: 80%;
+    border: none;
+    border-top: 1px solid rgba(94, 58, 82, 0.2);
+    margin: 1rem 0;
+  }
 
-  .login-button-mobile {
-    display: block;
-    font-size: 0.8rem;
-    padding: 0.8rem 2rem;
-    background-color: #F8F7FA;
-    color: #424242;
-    border-radius: 8px;
-    border: solid 1px;
-    border-color: #B53389;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  } 
-
-  .register-button-mobile {
-  /* display: block; */
-  padding: 0.8em 1.5rem;
-  font-size: 1rem;
-  color: #F8F7FA;
-  background-color: #B53389;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-  } 
-
+  .mobile-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    max-width: 300px;
+  }
 }
