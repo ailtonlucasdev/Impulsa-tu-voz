@@ -1,8 +1,8 @@
+// src/components/RecommendedCourses/RecommendedCourses.jsx
 import React from 'react';
 import './RecommendedCourses.css';
-import CourseCard from '../CourseCard/CourseCard.jsx'; // Importamos nosso componente de card
+import CourseCard from '../CourseCard/CourseCard.jsx';
 
-// Cursos fictícios (mock data)
 const mockCourses = [
   { id: 1, title: 'Curso habilidade de Culinária', rating: '4.8' },
   { id: 2, title: 'Curso habilidade de Tecnologia', rating: '4.9' },
@@ -14,7 +14,8 @@ const mockCourses = [
   { id: 8, title: 'Curso habilidade de Artesanato', rating: '4.7' },
 ];
 
-function RecommendedCourses() {
+// 1. O componente agora recebe a prop 'onNavigate'
+function RecommendedCourses({ onNavigate }) {
   return (
     <section className="courses-section">
       <h2 className="section-main-title">Cursos recomendados</h2>
@@ -25,7 +26,10 @@ function RecommendedCourses() {
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
-        <button className="show-all-button">Mostrar todos los cursos</button>
+        {/* 2. O onClick do botão agora chama a função 'onNavigate' recebida */}
+        <button className="show-all-button" onClick={onNavigate}>
+          Mostrar todos los cursos
+        </button>
       </div>
     </section>
   );

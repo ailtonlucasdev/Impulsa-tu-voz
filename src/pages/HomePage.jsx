@@ -12,13 +12,14 @@ import PlatformFeatures from '../components/PlatformFeatures/PlatformFeatures.js
 import PartnersMarquee from '../components/PartnersMarquee/PartnersMarquee.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-// A página recebe props para interagir com o App (navegação e modais)
+// A página recebe as props do App.jsx
 function HomePage({ onNavigateToCourses, onLoginClick, onRegisterClick }) {
   return (
     <>
       <Navbar onLoginClick={onLoginClick} onRegisterClick={onRegisterClick} />
       <main>
         <HeroSection />
+        {/* CORREÇÃO: Passamos a função 'onNavigateToCourses' para os componentes que precisam dela */}
         <SpecialtiesSection onNavigate={onNavigateToCourses} />
         <RecommendedCourses onNavigate={onNavigateToCourses} />
         <Testimonials />
