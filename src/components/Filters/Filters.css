@@ -1,0 +1,55 @@
+/* src/components/Filters/Filters.css */
+.filters-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os filtros quebrem linha em telas menores */
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown-filter {
+  gap: 0.5rem;
+}
+
+.filter-icon-placeholder {
+  width: 20px;
+  height: 20px;
+  background-color: #e0e0e0;
+}
+
+.search-filter {
+  flex-grow: 1; /* Faz a barra de busca ocupar o espaço restante */
+}
+
+.search-filter input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search-icon {
+  color: #B53389;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}

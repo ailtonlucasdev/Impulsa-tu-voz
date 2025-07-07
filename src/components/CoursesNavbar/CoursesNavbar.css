@@ -1,0 +1,31 @@
+/* src/components/CoursesNavbar/CoursesNavbar.css */
+.courses-navbar-container {
+  background-color: #EDE7F6; /* Um lilás um pouco mais claro */
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #D1C4E9;
+}
+
+.courses-navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.courses-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.courses-nav-links a {
+  color: #5E3A52;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Herda os estilos de botão do seu CSS principal, não precisa redefinir */
