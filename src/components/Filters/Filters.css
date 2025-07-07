@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap; /* Permite que os filtros quebrem linha em telas menores */
   gap: 1rem;
-  padding: 2rem;
+  padding: 3rem;
   max-width: 1400px;
   margin: 0 auto;
 }
