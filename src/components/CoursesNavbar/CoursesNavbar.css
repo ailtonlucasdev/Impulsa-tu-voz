@@ -1,35 +1,147 @@
 /* src/components/CoursesNavbar/CoursesNavbar.css */
+
+/* Este ficheiro é uma cópia do Navbar.css, com pequenas adaptações. */
+
 .courses-navbar-container {
-  background-color: #D1C4E9; /* Um lilás um pouco mais claro */
-  padding: 1rem 2rem;
-  border: none;
+  /* Propriedades para fixar a navbar no topo */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  
+  /* Cor de fundo ligeiramente diferente para esta navbar */
+  background-color: #D1C4E9;
+  padding: 1rem 2rem;
+  z-index: 100;
+  box-sizing: border-box;
+  border-bottom: 1px solid #D1C4E9;
 }
 
 .courses-navbar-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.courses-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+/* Reutilizamos as classes do Navbar.css para manter a consistência */
+.navbar-logo a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #424242;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.courses-nav-links a {
-  color: #5E3A52;
-  text-decoration: none;
+/* --- Estilos do Desktop --- */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.desktop-nav a {
+  color: #5E3A52; /* Cor mais escura para os links */
   font-weight: 500;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
 
-/* Herda os estilos de botão do seu CSS principal, não precisa redefinir */
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Botões (reutilizados do Navbar.css) --- */
+.nav-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  width: 100%;
+}
+.nav-button.primary {
+  background-color: #B53389;
+  color: white;
+}
+.nav-button.secondary {
+  border-color: #B53389;
+  color: #5E3A52;
+  background-color: white;
+}
+
+.settings-icon {
+  color: #424242;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Itens do Mobile (escondidos por padrão) --- */
+.menu-icon,
+.mobile-menu {
+  display: none;
+}
+.menu-icon { cursor: pointer; }
+
+
+/* --- RESPONSIVIDADE --- */
+@media screen and (max-width: 992px) {
+  
+  .desktop-nav,
+  .desktop-actions {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: block;
+    z-index: 1100;
+    position: relative;
+  }
+  
+  .mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(237, 231, 246, 0.95); /* Fundo correspondente */
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .mobile-menu a {
+    font-size: 1.5rem;
+    color: #424242;
+    text-decoration: none;
+  }
+  
+  .mobile-menu-divider {
+    width: 80%;
+    border: none;
+    border-top: 1px solid rgba(94, 58, 82, 0.2);
+    margin: 1rem 0;
+  }
+
+  .mobile-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    max-width: 300px;
+  }
+}
