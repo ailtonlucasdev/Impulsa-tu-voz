@@ -1,0 +1,14 @@
+/* src/pages/CoursesPage.css */
+
+.courses-page-grid {
+  display: grid;
+  /* Cria uma grade responsiva com colunas de no mínimo 250px de largura,
+     que se ajustam automaticamente para preencher o espaço. */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; /* Espaço entre os cards */
+  
+  /* Centraliza a grelha e adiciona espaçamento */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}

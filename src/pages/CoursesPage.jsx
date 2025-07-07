@@ -1,5 +1,6 @@
 // src/pages/CoursesPage.jsx
 import React from 'react';
+import './CoursesPage.css'; // Importa o ficheiro CSS que você tem no seu Canvas
 
 // Importa os componentes necessários para esta página
 import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
@@ -29,7 +30,7 @@ function CoursesPage({ onLoginClick, onRegisterClick }) {
           <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
         </div>
         <Filters />
-        {/* Adicionei uma classe ao container da grelha para podermos estilizá-la se necessário */}
+        {/* Esta div usa a classe 'courses-page-grid' do seu ficheiro CSS */}
         <div className="courses-page-grid">
           {allCourses.map(course => (
             <CourseCard key={course.id} course={course} />
