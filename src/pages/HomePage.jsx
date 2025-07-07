@@ -1,22 +1,33 @@
 // src/pages/HomePage.jsx
 import React from 'react';
 
-// ESTE COMPONENTE NÃO IMPORTA MAIS NADA. É TOTALMENTE ISOLADO.
+// Importa todas as seções que compõem a landing page
+import Navbar from '../components/Navbar/Navbar.jsx';
+import HeroSection from '../components/HeroSection/HeroSection.jsx';
+import SpecialtiesSection from '../components/SpecialtiesSection/SpecialtiesSection.jsx';
+import RecommendedCourses from '../components/RecommendedCourses/RecommendedCourses.jsx';
+import Testimonials from '../components/Testimonials/Testimonials.jsx';
+import Support from '../components/Support/Support.jsx';
+import PlatformFeatures from '../components/PlatformFeatures/PlatformFeatures.jsx';
+import PartnersMarquee from '../components/PartnersMarquee/PartnersMarquee.jsx';
+import Footer from '../components/Footer/Footer.jsx';
 
-// A página ainda recebe as props, mas não as usa por enquanto.
+// A página recebe props para interagir com o App (navegação e modais)
 function HomePage({ onNavigateToCourses, onLoginClick, onRegisterClick }) {
   return (
-    <div style={{ padding: '4rem', textAlign: 'center', fontSize: '1.5rem' }}>
-      <h1>Teste da HomePage</h1>
-      <p>Se você está a ver isto, a estrutura de páginas e o App.jsx estão a funcionar corretamente.</p>
-      <p>O erro está dentro de um dos componentes que foram removidos (provavelmente a Navbar).</p>
-      <button 
-        style={{ padding: '1rem 2rem', marginTop: '1rem' }} 
-        onClick={() => onNavigateToCourses('test')}
-      >
-        Clique para testar a navegação para Cursos
-      </button>
-    </div>
+    <>
+      <Navbar onLoginClick={onLoginClick} onRegisterClick={onRegisterClick} />
+      <main>
+        <HeroSection />
+        <SpecialtiesSection onNavigate={onNavigateToCourses} />
+        <RecommendedCourses onNavigate={onNavigateToCourses} />
+        <Testimonials />
+        <Support />
+        <PlatformFeatures />
+        <PartnersMarquee />
+      </main>
+      <Footer />
+    </>
   );
 }
 
