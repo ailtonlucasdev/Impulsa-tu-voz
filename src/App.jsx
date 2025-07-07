@@ -1,50 +1,60 @@
 // src/App.jsx
-
-// 1. Importe o 'useState' junto com o React para gerenciar o estado do modal
 import React, { useState } from 'react';
 import './App.css';
 
-// Importação de todos os componentes da sua página
-import Navbar from './components/Navbar/Navbar.jsx';
-import HeroSection from './components/HeroSection/HeroSection.jsx';
-import SpecialtiesSection from './components/SpecialtiesSection/SpecialtiesSection.jsx';
-import RecommendedCourses from './components/RecommendedCourses/RecommendedCourses.jsx';
-import Testimonials from './components/Testimonials/Testimonials.jsx';
-import Support from './components/Support/Support.jsx';
-import PlatformFeatures from './components/PlatformFeatures/PlatformFeatures.jsx';
-import PartnersMarquee from './components/PartnersMarquee/PartnersMarquee.jsx';
-import Footer from './components/Footer/Footer.jsx';
-// 2. Importe o componente do Modal que criamos
+// Importa as PÁGINAS, não mais os componentes individuais
+import HomePage from './pages/HomePage.jsx';
+import CoursesPage from './pages/CoursesPage.jsx';
+
+// Importa os modais, que podem ser abertos de qualquer página
 import RegisterModal from './components/RegisterModal/RegisterModal.jsx';
+import LoginModal from './components/LoginModal/LoginModal.jsx';
 
 function App() {
-  // 3. Crie a variável de estado para controlar a visibilidade do modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Estado para controlar a página atual ('home' ou 'courses')
+  const [currentPage, setCurrentPage] = useState('home');
 
-  // 4. Crie as funções que vão alterar o estado
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  // Estados para os modais
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const openRegisterModal = () => setIsRegisterModalOpen(true);
+  const closeRegisterModal = () => setIsRegisterModalOpen(false);
+  const openLoginModal = () => setIsLoginModalOpen(true);
+  const closeLoginModal = () => setIsLoginModalOpen(false);
+  
+  const switchToRegister = () => {
+    closeLoginModal();
+    openRegisterModal();
+  };
+
+  // Função para navegar para a página de cursos
+  const navigateToCourses = (filter) => {
+    // No futuro, você pode usar o 'filter' para já mostrar os cursos filtrados
+    console.log('Navegando para a página de cursos...');
+    setCurrentPage('courses');
+  };
 
   return (
     <div className="App">
-      {/* 5. Passe a função 'openModal' como uma propriedade para a Navbar */}
-      <Navbar onLoginClick={openModal} />
-      
-      <main>
-        <HeroSection />
-        <SpecialtiesSection />
-        <RecommendedCourses />
-        <Testimonials />
-        <Support />
-        <PlatformFeatures />
-        <PartnersMarquee />
-      </main>
-      
-      <Footer />
+      {/* Renderização condicional da página */}
+      {currentPage === 'home' && (
+        <HomePage 
+          onNavigateToCourses={navigateToCourses}
+          onLoginClick={openLoginModal}
+          onRegisterClick={openRegisterModal}
+        />
+      )}
+      {currentPage === 'courses' && (
+        <CoursesPage 
+          onLoginClick={openLoginModal}
+          onRegisterClick={openRegisterModal}
+        />
+      )}
 
-      {/* 6. Renderize o modal apenas se 'isModalOpen' for verdadeiro.
-          Passe a função 'closeModal' para que o modal saiba como se fechar. */}
-      {isModalOpen && <RegisterModal onClose={closeModal} />}
+      {/* Os modais vivem aqui, fora das páginas, para poderem ser chamados de qualquer lugar */}
+      {isRegisterModalOpen && <RegisterModal onClose={closeRegisterModal} />}
+      {isLoginModalOpen && <LoginModal onClose={closeLoginModal} onSwitchToRegister={switchToRegister} />}
     </div>
   );
 }
