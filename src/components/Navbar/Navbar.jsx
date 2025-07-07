@@ -35,7 +35,8 @@ function Navbar({ onLoginClick }) {
           <a href="/contatos" onClick={closeMenu}>Sobre</a>
           {/* 3. Use a nova função aqui para o botão mobile */}
           <a href="#" className="login-button-mobile" onClick={handleLoginClick}>Iniciar sesión</a>
-          <a href="#" className="register-button-mobile" onClick={handleLoginClick}>Registra-se</a>
+          <a href="#" className="register-button-mobile" onClick={handleLoginClick}>Registra-te</a>
+          {/* <a href="#" className="register-button-mobile" onClick={handleLoginClick}>Registra-FDASFDse</a> */}
         </nav>
         
 
@@ -45,7 +46,7 @@ function Navbar({ onLoginClick }) {
           <a href="/configuracoes" className="settings-icon">
           
           </a>
-          <button className="register-button" onClick={onLoginClick}>Registrar-se</button>
+          <button className="register-button" onClick={onLoginClick}>Registra-te</button>
           <a href="/configuracoes" className="settings-icon">
             <FaCog size={28} /> {/* icone de configurações */}
           </a>

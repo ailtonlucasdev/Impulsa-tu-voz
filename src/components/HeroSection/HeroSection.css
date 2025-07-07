@@ -1,7 +1,7 @@
 /* src/components/HeroSection/HeroSection.css */
 .hero-container {
   background-color: #ffffff; /* Fundo branco para a seção */
-  padding: 4rem 2rem; /* Espaçamento generoso */
+  padding: 8rem 2rem 4rem 2rem  ; /* Espaçamento generoso */
   display: flex;
   justify-content: center;
 }
