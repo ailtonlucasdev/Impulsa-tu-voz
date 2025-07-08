@@ -25,18 +25,19 @@
 .support-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #EDE7F6; /* Lilás bem claro de fundo */
+  background-color: #EDE7F6;
   padding: 2rem;
   border-radius: 16px;
 }
 
 .support-subtitle {
   font-size: 1rem;
-  color: #5E3A52; /* Roxo sóbrio */
+  color: #5E3A52;
   margin-top: 0;
   margin-bottom: 2rem;
 }
 
+/* CORREÇÃO: Adicionada a regra de grid */
 .support-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -50,6 +51,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .support-image-placeholder {
@@ -79,15 +87,13 @@
 }
 
 
-/* --- ADIÇÕES PARA RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 768px) {
   .support-section {
-    /* Diminui o espaçamento geral da seção */
     padding: 3rem 1rem;
   }
 
   .support-header h2 {
-    /* Diminui o tamanho do título */
     font-size: 1.8rem;
   }
   
@@ -96,12 +102,10 @@
   }
 
   .support-wrapper {
-    /* Diminui o espaçamento interno do container lilás */
     padding: 1.5rem 1rem;
   }
 
   .support-grid {
-    /* Diminui o espaço entre os cards */
     gap: 1rem;
   }
 }
