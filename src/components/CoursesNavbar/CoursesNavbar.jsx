@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import './CoursesNavbar.css'; 
 import { FaCog, FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';
 
-// Recebe as props para abrir os modais
-function CoursesNavbar({ onLoginClick, onRegisterClick }) {
+// 1. Receba a nova prop 'onNavigateToHome'
+function CoursesNavbar({ onNavigateToHome, onLoginClick, onRegisterClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -18,18 +18,25 @@ function CoursesNavbar({ onLoginClick, onRegisterClick }) {
     setIsMenuOpen(false);
     onRegisterClick();
   };
+  
+  // 2. Crie uma função para garantir que o menu fecha antes de navegar
+  const handleNavigateHome = () => {
+    setIsMenuOpen(false);
+    onNavigateToHome();
+  }
 
   return (
-    // Usamos uma classe principal diferente para evitar conflitos de estilo
     <header className="courses-navbar-container">
       <div className="courses-navbar-content">
         <div className="navbar-logo">
-          <a href="/">NOSSOLOGO</a>
+          {/* 3. Use a nova função no onClick do logo */}
+          <a href="#" onClick={handleNavigateHome}>NOSSOLOGO</a>
         </div>
 
         {/* --- Itens visíveis APENAS no DESKTOP --- */}
         <nav className="desktop-nav">
-          <a href="#">Página Inicial</a>
+          {/* 4. Use a nova função no onClick do link */}
+          <a href="#" onClick={handleNavigateHome}>Página Inicial</a>
           <a href="#" className="has-dropdown">Aprendizado <FaAngleDown /></a>
         </nav>
         <div className="desktop-actions">
@@ -48,7 +55,8 @@ function CoursesNavbar({ onLoginClick, onRegisterClick }) {
 
       {/* --- Menu overlay (visível APENAS no MOBILE quando ativo) --- */}
       <div className={isMenuOpen ? 'mobile-menu active' : 'mobile-menu'}>
-        <a href="#" onClick={() => setIsMenuOpen(false)}>Página Inicial</a>
+        {/* 5. Use a nova função no onClick do link do menu mobile */}
+        <a href="#" onClick={handleNavigateHome}>Página Inicial</a>
         <a href="#" onClick={() => setIsMenuOpen(false)}>Aprendizado</a>
         <hr className="mobile-menu-divider" />
         <div className="mobile-buttons-wrapper">

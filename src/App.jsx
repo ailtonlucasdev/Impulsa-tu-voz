@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // 1. Importe o useEffect
 import './App.css';
 
 // Importa as PÁGINAS
@@ -15,6 +15,12 @@ function App() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
+  // 2. Este useEffect é executado sempre que 'currentPage' muda
+  useEffect(() => {
+    // Rola a janela para o topo (coordenadas x:0, y:0)
+    window.scrollTo(0, 0);
+  }, [currentPage]); // O array de dependências garante que isto só acontece quando a página muda
+
   const openRegisterModal = () => setIsRegisterModalOpen(true);
   const closeRegisterModal = () => setIsRegisterModalOpen(false);
   const openLoginModal = () => setIsLoginModalOpen(true);
@@ -25,9 +31,9 @@ function App() {
     openRegisterModal();
   };
 
-  const navigateToCourses = () => {
-    setCurrentPage('courses');
-  };
+  // Funções de navegação
+  const navigateToCourses = () => setCurrentPage('courses');
+  const navigateToHome = () => setCurrentPage('home'); // 3. Nova função para voltar à home
 
   return (
     <div className="App">
@@ -40,6 +46,7 @@ function App() {
       )}
       {currentPage === 'courses' && (
         <CoursesPage 
+          onNavigateToHome={navigateToHome} // 4. Passe a nova função para a CoursesPage
           onLoginClick={openLoginModal}
           onRegisterClick={openRegisterModal}
         />

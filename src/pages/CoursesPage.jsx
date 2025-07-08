@@ -1,6 +1,6 @@
 // src/pages/CoursesPage.jsx
 import React from 'react';
-import './CoursesPage.css'; // Importa o ficheiro CSS que você tem no seu Canvas
+import './CoursesPage.css';
 
 // Importa os componentes necessários para esta página
 import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
@@ -8,7 +8,7 @@ import Filters from '../components/Filters/Filters.jsx';
 import CourseCard from '../components/CourseCard/CourseCard.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-// Dados de exemplo, que viriam de uma API no futuro
+// Dados de exemplo
 const allCourses = [
   { id: 1, title: 'Curso de Culinária Básica', rating: '4.8' },
   { id: 2, title: 'Introdução à Programação', rating: '4.9' },
@@ -20,16 +20,21 @@ const allCourses = [
   { id: 8, title: 'Marketing para Iniciantes', rating: '4.8' },
 ];
 
-function CoursesPage({ onLoginClick, onRegisterClick }) {
+// 1. Receba a nova prop 'onNavigateToHome' vinda do App.jsx
+function CoursesPage({ onNavigateToHome, onLoginClick, onRegisterClick }) {
   return (
     <>
-      <CoursesNavbar onLoginClick={onLoginClick} onRegisterClick={onRegisterClick} />
+      {/* 2. Passe a prop para a CoursesNavbar */}
+      <CoursesNavbar 
+        onNavigateToHome={onNavigateToHome} 
+        onLoginClick={onLoginClick} 
+        onRegisterClick={onRegisterClick} 
+      />
       <main>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
         </div>
         <Filters />
           <h1>Nossos Cursos</h1>
-        {/* Esta div usa a classe 'courses-page-grid' do seu ficheiro CSS */}
           <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
         <div className="courses-page-grid">
           {allCourses.map(course => (
