@@ -1,4 +1,5 @@
 // src/components/Testimonials/Testimonials.jsx
+
 import React from 'react';
 import './Testimonials.css';
 // Pode usar um ícone de aspas ou de utilizador de react-icons

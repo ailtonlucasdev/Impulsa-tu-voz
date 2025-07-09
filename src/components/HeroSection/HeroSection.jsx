@@ -1,3 +1,5 @@
+// src/components/HeroSection/HeroSection.jsx
+
 import React from 'react';
 import './HeroSection.css';
 

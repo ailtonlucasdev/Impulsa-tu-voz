@@ -1,37 +1,43 @@
-// src/pages/SupportPage.jsx
+// src/components/Support/Support.jsx
+
 import React from 'react';
-// A importação do CSS será comentada temporariamente para isolar o problema.
 import './SupportPage.css';
 
-// As importações dos componentes também serão comentadas para o teste.
-import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
-import Footer from '../components/Footer/Footer.jsx';
-// import { FaArrowLeft, FaMapMarkerAlt } from 'react-icons/fa';
+const supportTopics = [
+  { title: 'Apoyo jurídico', description: 'Recibir orientación y apoyo jurídico de forma gratuita y segura.', filterKey: 'juridico' },
+  { title: 'Hospitales', description: 'Recibir atención médica gratuita y de calidad.', filterKey: 'hospitales' },
+  { title: 'Apoyo social', description: 'Recibir asistencia social gratuita y cercana.', filterKey: 'social' },
+  { title: 'Guarderías', description: 'Recibir atención médica gratuita y de calidad.', filterKey: 'guarderias' }
+];
 
-// A página ainda recebe as props para que o App.jsx não dê erro.
-function SupportPage({ category, onNavigateToHome, onLoginClick, onRegisterClick }) {
-  
-  // Apenas para o teste, mostramos a categoria recebida.
-  const pageTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Suporte';
-
+// O componente agora recebe a prop 'onNavigate'
+function Support({ onNavigate }) {
   return (
-    // Renderizamos apenas um texto simples para garantir que a página carrega.
-    <>
-      <CoursesNavbar 
-        onNavigateToHome={onNavigateToHome}
-        onLoginClick={onLoginClick}
-        onRegisterClick={onRegisterClick}
-        navLinkText="Setores"
-      />
-      <div style={{ padding: '4rem', textAlign: 'center', fontSize: '1.5rem' }}>
-        <h1>Página de Suporte (Depuração)</h1>
-        <p>Se você está a ver isto, a navegação para a SupportPage funcionou.</p>
-        <p>O erro está num dos componentes que foram comentados neste ficheiro.</p>
-        <h2>Categoria recebida: {pageTitle}</h2>
+    <section className="support-section">
+      <div className="support-header">
+        <h2>Que más necessitas</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-      <Footer />
-    </>
+      <div className="support-wrapper">
+        <p className="support-subtitle">Haz clic en la opción deseada:</p>
+        <div className="support-grid">
+          {supportTopics.map((topic, index) => (
+            <div 
+              className="support-card" 
+              key={index}
+              onClick={() => onNavigate(topic.filterKey)}
+            >
+              <div className="support-image-placeholder"></div>
+              <div className="support-card-content">
+                <h3>{topic.title}</h3>
+                <p>{topic.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
-export default SupportPage;
+export default Support;

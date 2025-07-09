@@ -1,4 +1,5 @@
 // src/components/PartnersMarquee/PartnersMarquee.jsx
+
 import React from 'react';
 import './PartnersMarquee.css';
 

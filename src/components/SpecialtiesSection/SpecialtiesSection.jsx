@@ -1,3 +1,5 @@
+// src/components/SpecialtiesSection/SpecialtiesSection.jsx
+
 import React from 'react';
 import './SpecialtiesSection.css';
 // ícones para importação

@@ -1,4 +1,5 @@
 // src/pages/CoursesPage.jsx
+
 import React from 'react';
 import './CoursesPage.css';
 

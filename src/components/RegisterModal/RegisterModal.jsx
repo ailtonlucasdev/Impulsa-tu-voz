@@ -1,4 +1,5 @@
 // src/components/RegisterModal/RegisterModal.jsx
+
 import React from 'react';
 import './RegisterModal.css';
 import { FaTimes } from 'react-icons/fa'; // Ícone para o botão de fechar

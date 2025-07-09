@@ -1,4 +1,5 @@
 // src/pages/HomePage.jsx
+
 import React from 'react';
 
 // Importa todas as seções que compõem a landing page

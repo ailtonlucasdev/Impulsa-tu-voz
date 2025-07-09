@@ -1,4 +1,5 @@
 // src/components/CoursesNavbar/CoursesNavbar.jsx
+
 import React, { useState } from 'react';
 import './CoursesNavbar.css'; 
 import { FaCog, FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';

@@ -1,4 +1,5 @@
 /* src/components/Support/Support.css */
+
 .support-section {
   padding: 4rem 2rem;
   background-color: #ffffff;
@@ -37,7 +38,6 @@
   margin-bottom: 2rem;
 }
 
-/* CORREÇÃO: Adicionada a regra de grid */
 .support-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -57,7 +57,7 @@
 
 .support-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
 }
 
 .support-image-placeholder {
@@ -86,25 +86,19 @@
   margin: 0;
 }
 
-
-/* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 768px) {
   .support-section {
     padding: 3rem 1rem;
   }
-
   .support-header h2 {
     font-size: 1.8rem;
   }
-  
   .support-header p {
     font-size: 1rem;
   }
-
   .support-wrapper {
     padding: 1.5rem 1rem;
   }
-
   .support-grid {
     gap: 1rem;
   }

@@ -1,3 +1,5 @@
+// src/components/PlatformFeatures/PlatformFeatures.jsx
+
 import React from 'react';
 import './PlatformFeatures.css';
 // Ex: import { FaHandshake, FaGavel, FaChild } from 'react-icons/fa';

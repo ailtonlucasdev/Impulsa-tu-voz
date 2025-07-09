@@ -1,4 +1,5 @@
 // src/components/Filters/Filters.jsx
+
 import React from 'react';
 import './Filters.css';
 import { FaSearch, FaFilter } from 'react-icons/fa';

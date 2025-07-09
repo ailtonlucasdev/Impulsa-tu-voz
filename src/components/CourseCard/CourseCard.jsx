@@ -1,3 +1,5 @@
+// src/components/CourseCard/CourseCard.jsx
+
 import React from 'react';
 import './CourseCard.css';
 import { FaStar } from 'react-icons/fa'; // Usaremos um ícone para a estrela

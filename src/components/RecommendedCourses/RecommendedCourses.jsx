@@ -1,4 +1,5 @@
 // src/components/RecommendedCourses/RecommendedCourses.jsx
+
 import React from 'react';
 import './RecommendedCourses.css';
 import CourseCard from '../CourseCard/CourseCard.jsx';
