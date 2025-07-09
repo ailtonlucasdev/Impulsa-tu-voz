@@ -1,7 +1,5 @@
 /* src/components/CoursesNavbar/CoursesNavbar.css */
 
-/* Este ficheiro é uma cópia do Navbar.css, com pequenas adaptações. */
-
 .courses-navbar-container {
   /* Propriedades para fixar a navbar no topo */
   position: fixed;
@@ -9,8 +7,8 @@
   left: 0;
   width: 100%;
   
-  /* Cor de fundo ligeiramente diferente para esta navbar */
-  background-color: #D1C4E9;
+  /* Cor de fundo específica para esta navbar */
+  background-color: #EDE7F6;
   padding: 1rem 2rem;
   z-index: 100;
   box-sizing: border-box;
@@ -96,17 +94,20 @@
 /* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 992px) {
   
+  /* 1. Esconde os elementos do desktop */
   .desktop-nav,
   .desktop-actions {
     display: none;
   }
   
+  /* 2. Mostra o ícone do menu hambúrguer */
   .menu-icon {
     display: block;
     z-index: 1100;
     position: relative;
   }
   
+  /* 3. Estiliza o menu overlay QUANDO ele está aberto (.active) */
   .mobile-menu.active {
     display: flex;
     flex-direction: column;

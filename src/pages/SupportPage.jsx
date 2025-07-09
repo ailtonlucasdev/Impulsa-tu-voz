@@ -1,59 +1,76 @@
-// src/components/Support/Support.jsx
+// src/pages/SupportPage.jsx
 import React from 'react';
-import './Support.css';
+// CORREÇÃO: A importação agora aponta para o seu próprio ficheiro CSS.
+import './SupportPage.css';
 
-const supportTopics = [
-  {
-    title: 'Apoyo jurídico',
-    description: 'Recibir orientación y apoyo jurídico de forma gratuita y segura.',
-    filterKey: 'juridico' // Chave para navegação
-  },
-  {
-    title: 'Hospitales',
-    description: 'Recibir atención médica gratuita y de calidad.',
-    filterKey: 'hospitales'
-  },
-  {
-    title: 'Apoyo social',
-    description: 'Recibir asistencia social gratuita y cercana.',
-    filterKey: 'social'
-  },
-  {
-    title: 'Guarderías',
-    description: 'Recibir atención médica gratuita y de calidad.',
-    filterKey: 'guarderias'
-  }
+// Reutilizamos a navbar da página de cursos
+import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
+import Footer from '../components/Footer/Footer.jsx';
+import { FaArrowLeft, FaMapMarkerAlt } from 'react-icons/fa';
+
+// Dados de exemplo para os estabelecimentos
+const mockEstablishments = [
+  { name: 'Estabelecimento 1', address: 'Cidade/Estado' },
+  { name: 'Estabelecimento 2', address: 'Cidade/Estado' },
+  { name: 'Estabelecimento 3', address: 'Cidade/Estado' },
 ];
 
-// 1. O componente agora recebe a prop 'onNavigate'
-function Support({ onNavigate }) {
+// A página recebe a categoria selecionada e a função para voltar
+function SupportPage({ category, onNavigateToHome, onLoginClick, onRegisterClick }) {
+  // Transforma a chave do filtro num título legível
+  const pageTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Suporte';
+
   return (
-    <section className="support-section">
-      <div className="support-header">
-        <h2>Que más necessitas</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </div>
-      <div className="support-wrapper">
-        <p className="support-subtitle">Haz clic en la opción deseada:</p>
-        <div className="support-grid">
-          {supportTopics.map((topic, index) => (
-            // 2. Adicionamos o onClick ao card, que chama a função de navegação
-            <div 
-              className="support-card" 
-              key={index}
-              onClick={() => onNavigate(topic.filterKey)}
-            >
-              <div className="support-image-placeholder"></div>
-              <div className="support-card-content">
-                <h3>{topic.title}</h3>
-                <p>{topic.description}</p>
-              </div>
-            </div>
-          ))}
+    <>
+      {/* Usamos a CoursesNavbar, passando o texto "Setores" */}
+      <CoursesNavbar 
+        navLinkText="Setores"
+        onNavigateToHome={onNavigateToHome}
+        onLoginClick={onLoginClick} 
+        onRegisterClick={onRegisterClick} 
+      />
+      <main className="support-page-main">
+        <div className="support-page-header">
+          <button onClick={onNavigateToHome} className="back-button">
+            <FaArrowLeft /> Retornar
+          </button>
+          <h2>Setor/área: {pageTitle}</h2>
         </div>
-      </div>
-    </section>
+
+        <div className="map-container">
+          <div className="map-placeholder">
+            <p>Localização atual</p>
+            <FaMapMarkerAlt className="map-pin-icon" />
+          </div>
+          <p className="map-command">Comando para navegar no mapa</p>
+        </div>
+
+        <div className="establishments-container">
+          <div className="establishments-header">
+            <label htmlFor="distance-filter">Ver estabelecimentos próximos até:</label>
+            <select id="distance-filter">
+              <option>10 km</option>
+              <option>25 km</option>
+              <option>50 km</option>
+            </select>
+          </div>
+          <div className="establishments-grid">
+            {mockEstablishments.map((est, index) => (
+              <div className="establishment-card" key={index}>
+                <div className="establishment-image-placeholder"></div>
+                <div className="establishment-info">
+                  <h4>{est.name}</h4>
+                  <p>{est.address}</p>
+                  <a href="#">Ver no mapa</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 
-export default Support;
+export default SupportPage;
