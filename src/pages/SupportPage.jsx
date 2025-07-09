@@ -1,73 +1,34 @@
 // src/pages/SupportPage.jsx
 import React from 'react';
-// CORREÇÃO: A importação agora aponta para o seu próprio ficheiro CSS.
+// A importação do CSS será comentada temporariamente para isolar o problema.
 import './SupportPage.css';
 
-// Reutilizamos a navbar da página de cursos
+// As importações dos componentes também serão comentadas para o teste.
 import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import { FaArrowLeft, FaMapMarkerAlt } from 'react-icons/fa';
+// import { FaArrowLeft, FaMapMarkerAlt } from 'react-icons/fa';
 
-// Dados de exemplo para os estabelecimentos
-const mockEstablishments = [
-  { name: 'Estabelecimento 1', address: 'Cidade/Estado' },
-  { name: 'Estabelecimento 2', address: 'Cidade/Estado' },
-  { name: 'Estabelecimento 3', address: 'Cidade/Estado' },
-];
-
-// A página recebe a categoria selecionada e a função para voltar
+// A página ainda recebe as props para que o App.jsx não dê erro.
 function SupportPage({ category, onNavigateToHome, onLoginClick, onRegisterClick }) {
-  // Transforma a chave do filtro num título legível
+  
+  // Apenas para o teste, mostramos a categoria recebida.
   const pageTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Suporte';
 
   return (
+    // Renderizamos apenas um texto simples para garantir que a página carrega.
     <>
-      {/* Usamos a CoursesNavbar, passando o texto "Setores" */}
       <CoursesNavbar 
-        navLinkText="Setores"
         onNavigateToHome={onNavigateToHome}
-        onLoginClick={onLoginClick} 
-        onRegisterClick={onRegisterClick} 
+        onLoginClick={onLoginClick}
+        onRegisterClick={onRegisterClick}
+        navLinkText="Setores"
       />
-      <main className="support-page-main">
-        <div className="support-page-header">
-          <button onClick={onNavigateToHome} className="back-button">
-            <FaArrowLeft /> Retornar
-          </button>
-          <h2>Setor/área: {pageTitle}</h2>
-        </div>
-
-        <div className="map-container">
-          <div className="map-placeholder">
-            <p>Localização atual</p>
-            <FaMapMarkerAlt className="map-pin-icon" />
-          </div>
-          <p className="map-command">Comando para navegar no mapa</p>
-        </div>
-
-        <div className="establishments-container">
-          <div className="establishments-header">
-            <label htmlFor="distance-filter">Ver estabelecimentos próximos até:</label>
-            <select id="distance-filter">
-              <option>10 km</option>
-              <option>25 km</option>
-              <option>50 km</option>
-            </select>
-          </div>
-          <div className="establishments-grid">
-            {mockEstablishments.map((est, index) => (
-              <div className="establishment-card" key={index}>
-                <div className="establishment-image-placeholder"></div>
-                <div className="establishment-info">
-                  <h4>{est.name}</h4>
-                  <p>{est.address}</p>
-                  <a href="#">Ver no mapa</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
+      <div style={{ padding: '4rem', textAlign: 'center', fontSize: '1.5rem' }}>
+        <h1>Página de Suporte (Depuração)</h1>
+        <p>Se você está a ver isto, a navegação para a SupportPage funcionou.</p>
+        <p>O erro está num dos componentes que foram comentados neste ficheiro.</p>
+        <h2>Categoria recebida: {pageTitle}</h2>
+      </div>
       <Footer />
     </>
   );
