@@ -44,6 +44,7 @@
   transition: color 0.2s ease;
 }
 
+/* AJUSTE: Removido o espaço antes de ':hover' para corrigir o seletor */
 .social-icons a:hover {
   color: #B53389; /* Cor magenta da nossa paleta */
 }
