@@ -1,1 +1,1 @@
-// src/components/SupportPage.jsx
+// src/pages/SupportPage.jsx
