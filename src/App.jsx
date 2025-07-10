@@ -66,7 +66,7 @@ function App() {
           category={supportCategory}
           onNavigateToHome={navigateToHome}
           onLoginClick={openLoginModal}
-          onRegisterClick={openRegisterClick}
+          onRegisterClick={openRegisterModal}
         />
       )}
 
