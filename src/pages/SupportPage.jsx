@@ -1,4 +1,4 @@
-// src/components/Support/Support.jsx
+// src/components/SupportPage.jsx
 
 import React from 'react';
 import './SupportPage.css';
