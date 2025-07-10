@@ -1,1 +1,106 @@
 /* src/pages/SupportPage.css */
+
+.support-page-main {
+  padding-top: 80px; /* Espaço para a navbar fixa */
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.support-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.return-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.support-page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #e9ecef;
+  border: 2px dashed #ced4da;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.map-pin {
+  width: 25px;
+  height: 25px;
+  background-color: #333;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+}
+.map-pin::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.establishments-section {
+  background-color: #e9ecef;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.establishments-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.establishments-header label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.distance-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.establishments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}

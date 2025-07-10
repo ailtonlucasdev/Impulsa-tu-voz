@@ -1,0 +1,46 @@
+/* src/components/EstablishmentCard/EstablishmentCard.css */
+
+.establishment-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.establishment-image-placeholder {
+  height: 140px;
+  background-color: #e9e9e9;
+  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                    linear-gradient(-45deg, #ccc 25%, transparent 25%);
+  background-size: 16px 16px;
+}
+
+.establishment-content {
+  padding: 1rem;
+}
+
+.establishment-content h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.establishment-content p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.establishment-content a {
+  color: #B53389;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.establishment-content a:hover {
+  text-decoration: underline;
+}
