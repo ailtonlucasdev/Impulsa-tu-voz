@@ -6,9 +6,17 @@
      que se ajustam automaticamente para preencher o espaço. */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem; /* Espaço entre os cards */
-  
-  /* Centraliza a grelha e adiciona espaçamento */
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
+}
+
+/* --- AJUSTES PARA RESPONSIVIDADE --- */
+@media screen and (max-width: 768px) {
+  /* Reduz o padding do container principal em telas menores */
+  .courses-page-grid-container {
+    padding: 1rem;
+  }
+
+  /* Diminui o espaço entre os cards */
+  .courses-page-grid {
+    gap: 1rem;
+  }
 }

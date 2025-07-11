@@ -81,6 +81,7 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
 }
 
 .establishments-header label {
@@ -103,4 +104,21 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+}
+
+/* --- AJUSTES PARA RESPONSIVIDADE --- */
+@media screen and (max-width: 768px) {
+  .support-page-content {
+    padding: 1rem; /* Reduz o padding geral */
+  }
+
+  .establishments-section {
+    padding: 1.5rem; /* Reduz o padding da seção cinza */
+  }
+
+  .establishments-grid {
+    /* Ajusta a largura mínima dos cards para evitar que transbordem */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
 }

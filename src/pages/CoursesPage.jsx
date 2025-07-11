@@ -33,7 +33,8 @@ function CoursesPage({ onNavigateToHome, onNavigateToCourses, onNavigateToSuppor
       />
       <main style={{paddingTop: '80px'}}>
         <Filters />
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
+        {/* Adicionada a classe para o CSS responsivo funcionar */}
+        <div className="courses-page-grid-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
           <h1>Nossos Cursos</h1>
           <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
           <div className="courses-page-grid">
