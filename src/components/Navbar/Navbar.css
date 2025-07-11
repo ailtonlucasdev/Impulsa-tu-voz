@@ -1,16 +1,16 @@
 /* src/components/Navbar/Navbar.css */
 
 .navbar-container {
-  /* Propriedades para fixar a navbar no topo */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   
-  background-color: #D1C4E9;
+  /* --- ALTERAÇÃO APLICADA --- */
+  background-color: #D1C4E9; /* Cor de fundo lilás */
   padding: 1rem 2rem;
   z-index: 100;
-  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+  box-sizing: border-box;
 }
 
 .navbar-content {
@@ -21,15 +21,15 @@
   align-items: center;
 }
 
+/* Cores originais mantidas para bom contraste */
 .navbar-logo a {
   font-weight: bold;
   font-size: 1.5rem;
-  color: #424242;
+  color: #424242; 
   text-decoration: none;
-  flex-shrink: 0; /* Impede que o logo seja esmagado */
+  flex-shrink: 0;
 }
 
-/* --- Estilos do Desktop --- */
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -49,7 +49,6 @@
   gap: 1rem;
 }
 
-/* --- Botões (usados em ambas as vistas) --- */
 .nav-button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
@@ -76,31 +75,30 @@
   align-items: center;
 }
 
-/* --- Itens do Mobile (escondidos por padrão) --- */
 .menu-icon,
 .mobile-menu {
   display: none;
 }
-.menu-icon { cursor: pointer; }
+.menu-icon { 
+  cursor: pointer; 
+  color: #424242; /* Cor original para o ícone */
+}
 
 
 /* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 992px) {
   
-  /* 1. Esconde os elementos do desktop */
   .desktop-nav,
   .desktop-actions {
     display: none;
   }
   
-  /* 2. Mostra o ícone do menu hambúrguer */
   .menu-icon {
     display: block;
     z-index: 1100;
     position: relative;
   }
   
-  /* 3. Estiliza o menu overlay QUANDO ele está aberto (.active) */
   .mobile-menu.active {
     display: flex;
     flex-direction: column;
@@ -112,7 +110,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(233, 222, 243, 0.95);
+    background: rgba(209, 196, 233, 0.95); /* Fundo do menu mobile com a nova cor */
     backdrop-filter: blur(8px);
     z-index: 1000;
     padding: 1rem;
