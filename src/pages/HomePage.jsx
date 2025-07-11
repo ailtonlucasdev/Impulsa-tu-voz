@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-// Importa todas as seções que compõem a landing page
+// Importa a Navbar unificada
 import Navbar from '../components/Navbar/Navbar.jsx';
 import HeroSection from '../components/HeroSection/HeroSection.jsx';
 import SpecialtiesSection from '../components/SpecialtiesSection/SpecialtiesSection.jsx';
@@ -13,17 +13,22 @@ import PlatformFeatures from '../components/PlatformFeatures/PlatformFeatures.js
 import PartnersMarquee from '../components/PartnersMarquee/PartnersMarquee.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-// A página recebe as props do App.jsx, incluindo a nova 'onNavigateToSupport'
-function HomePage({ onNavigateToCourses, onNavigateToSupport, onLoginClick, onRegisterClick }) {
+// A página passa todas as funções de navegação para a Navbar
+function HomePage({ onNavigateToHome, onNavigateToCourses, onNavigateToSupport, onLoginClick, onRegisterClick }) {
   return (
     <>
-      <Navbar onLoginClick={onLoginClick} onRegisterClick={onRegisterClick} />
+      <Navbar 
+        onNavigateToHome={onNavigateToHome}
+        onNavigateToCourses={onNavigateToCourses}
+        onNavigateToSupport={onNavigateToSupport}
+        onLoginClick={onLoginClick} 
+        onRegisterClick={onRegisterClick} 
+      />
       <main>
         <HeroSection />
         <SpecialtiesSection onNavigate={onNavigateToCourses} />
         <RecommendedCourses onNavigate={onNavigateToCourses} />
         <Testimonials />
-        {/* Passa a função de navegação para o componente Support */}
         <Support onNavigate={onNavigateToSupport} />
         <PlatformFeatures />
         <PartnersMarquee />

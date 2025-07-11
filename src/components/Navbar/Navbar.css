@@ -5,9 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  
-  /* --- ALTERAÇÃO APLICADA --- */
-  background-color: #D1C4E9; /* Cor de fundo lilás */
+  background-color: #D1C4E9;
   padding: 1rem 2rem;
   z-index: 100;
   box-sizing: border-box;
@@ -21,11 +19,10 @@
   align-items: center;
 }
 
-/* Cores originais mantidas para bom contraste */
 .navbar-logo a {
   font-weight: bold;
   font-size: 1.5rem;
-  color: #424242; 
+  color: #424242;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -38,9 +35,11 @@
   padding: 0 2rem;
 }
 
+/* Adicionado cursor pointer para indicar que os links são clicáveis */
 .desktop-nav a {
   color: #424242;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .desktop-actions {
@@ -79,26 +78,21 @@
 .mobile-menu {
   display: none;
 }
-.menu-icon { 
-  cursor: pointer; 
-  color: #424242; /* Cor original para o ícone */
+.menu-icon {
+  cursor: pointer;
+  color: #424242;
 }
 
-
-/* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 992px) {
-  
   .desktop-nav,
   .desktop-actions {
     display: none;
   }
-  
   .menu-icon {
     display: block;
     z-index: 1100;
     position: relative;
   }
-  
   .mobile-menu.active {
     display: flex;
     flex-direction: column;
@@ -110,25 +104,22 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(209, 196, 233, 0.95); /* Fundo do menu mobile com a nova cor */
+    background: rgba(209, 196, 233, 0.95);
     backdrop-filter: blur(8px);
     z-index: 1000;
     padding: 1rem;
   }
-
   .mobile-menu a {
     font-size: 1.5rem;
     color: #424242;
     text-decoration: none;
   }
-  
   .mobile-menu-divider {
     width: 80%;
     border: none;
     border-top: 1px solid rgba(94, 58, 82, 0.2);
     margin: 1rem 0;
   }
-
   .mobile-buttons-wrapper {
     display: flex;
     flex-direction: column;

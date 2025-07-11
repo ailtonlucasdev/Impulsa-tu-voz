@@ -3,13 +3,12 @@
 import React from 'react';
 import './CoursesPage.css';
 
-// Importa os componentes necessários para esta página
-import CoursesNavbar from '../components/CoursesNavbar/CoursesNavbar.jsx';
+// Importa a Navbar unificada (não mais a CoursesNavbar)
+import Navbar from '../components/Navbar/Navbar.jsx';
 import Filters from '../components/Filters/Filters.jsx';
 import CourseCard from '../components/CourseCard/CourseCard.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-// Dados de exemplo
 const allCourses = [
   { id: 1, title: 'Curso de Culinária Básica', rating: '4.8' },
   { id: 2, title: 'Introdução à Programação', rating: '4.9' },
@@ -21,26 +20,27 @@ const allCourses = [
   { id: 8, title: 'Marketing para Iniciantes', rating: '4.8' },
 ];
 
-// 1. Receba a nova prop 'onNavigateToHome' vinda do App.jsx
-function CoursesPage({ onNavigateToHome, onLoginClick, onRegisterClick }) {
+// A página passa todas as funções de navegação para a Navbar
+function CoursesPage({ onNavigateToHome, onNavigateToCourses, onNavigateToSupport, onLoginClick, onRegisterClick }) {
   return (
     <>
-      {/* 2. Passe a prop para a CoursesNavbar */}
-      <CoursesNavbar 
-        onNavigateToHome={onNavigateToHome} 
+      <Navbar 
+        onNavigateToHome={onNavigateToHome}
+        onNavigateToCourses={onNavigateToCourses}
+        onNavigateToSupport={onNavigateToSupport}
         onLoginClick={onLoginClick} 
         onRegisterClick={onRegisterClick} 
       />
-      <main>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
-        </div>
+      <main style={{paddingTop: '80px'}}>
         <Filters />
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '2rem' }}>
           <h1>Nossos Cursos</h1>
           <p>Encontre a capacitação ideal para o seu próximo passo profissional.</p>
-        <div className="courses-page-grid">
-          {allCourses.map(course => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+          <div className="courses-page-grid">
+            {allCourses.map(course => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+          </div>
         </div>
       </main>
       <Footer />
