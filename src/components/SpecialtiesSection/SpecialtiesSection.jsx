@@ -5,15 +5,15 @@ import './SpecialtiesSection.css';
 // ícones para importação
 import { FaLaptopCode, FaGraduationCap, FaLanguage, FaUtensils } from 'react-icons/fa';
 
+// Array de especialidades com os nomes atualizados e corrigidos
 const specialties = [
-  // Adicionamos um 'filterKey' para usar na navegação
-  { name: 'Tecnologia', icon: <FaLaptopCode size={40} />, filterKey: 'tecnologia' },
-  { name: 'Educação', icon: <FaGraduationCap size={40} />, filterKey: 'educacao' },
-  { name: 'Linguagens', icon: <FaLanguage size={40} />, filterKey: 'linguagens' },
-  { name: 'Culinária', icon: <FaUtensils size={40} />, filterKey: 'culinaria' },
+  { name: 'Habilidades Digitales', icon: <FaLaptopCode size={40} />, filterKey: 'tecnologia' },
+  { name: 'Validación y Cursos Técnicos', icon: <FaGraduationCap size={40} />, filterKey: 'educacao' },
+  { name: 'Lenguajes para el Éxito', icon: <FaLanguage size={40} />, filterKey: 'linguagens' }, // CORRIGIDO
+  { name: 'Gastronomía y Negocios', icon: <FaUtensils size={40} />, filterKey: 'culinaria' },
 ];
 
-// 1. O componente agora recebe a prop 'onNavigate'
+// O componente agora recebe a prop 'onNavigate'
 function SpecialtiesSection({ onNavigate }) {
   return (
     <section className="specialties-container">
@@ -23,11 +23,11 @@ function SpecialtiesSection({ onNavigate }) {
       </div>
       <div className="specialties-grid">
         {specialties.map((specialty, index) => (
-          // 2. Adicionamos o evento onClick ao card
+          // Adicionamos o evento onClick ao card
           <div 
             className="specialty-card" 
             key={index} 
-            // 3. O onClick chama a função onNavigate, passando a chave do filtro
+            // O onClick chama a função onNavigate, passando a chave do filtro
             onClick={() => onNavigate(specialty.filterKey)}
           >
             <div className="specialty-icon">{specialty.icon}</div>
