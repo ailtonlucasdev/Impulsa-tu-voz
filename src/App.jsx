@@ -12,6 +12,9 @@ import LoginModal from './components/LoginModal/LoginModal.jsx';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [supportCategory, setSupportCategory] = useState(null);
+  // Novo estado para a categoria de curso
+  const [courseCategory, setCourseCategory] = useState(null);
+
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
@@ -29,9 +32,14 @@ function App() {
     openRegisterModal();
   };
 
-  // Funções de navegação unificadas
+  // Funções de navegação atualizadas
   const navigateToHome = () => setCurrentPage('home');
-  const navigateToCourses = () => setCurrentPage('courses');
+  
+  const navigateToCourses = (category) => {
+    setCourseCategory(category); // Guarda a categoria de curso
+    setCurrentPage('courses');
+  };
+
   const navigateToSupport = (category) => {
     setSupportCategory(category);
     setCurrentPage('support');
@@ -48,7 +56,8 @@ function App() {
 
     switch (currentPage) {
       case 'courses':
-        return <CoursesPage {...navProps} />;
+        // Passa a categoria de curso para a página
+        return <CoursesPage {...navProps} category={courseCategory} />;
       case 'support':
         return <SupportPage {...navProps} category={supportCategory} />;
       case 'home':

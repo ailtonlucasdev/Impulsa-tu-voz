@@ -25,6 +25,7 @@
   color: #424242;
   text-decoration: none;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .desktop-nav {
@@ -35,12 +36,61 @@
   padding: 0 2rem;
 }
 
-/* Adicionado cursor pointer para indicar que os links são clicáveis */
 .desktop-nav a {
   color: #424242;
   text-decoration: none;
   cursor: pointer;
 }
+
+/* --- ESTILOS PARA O DROPDOWN --- */
+.nav-item {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-item-link {
+  color: #424242;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-item {
+  padding: 0.75rem 1.5rem;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: #f7f5fa;
+}
+/* --- FIM DOS ESTILOS DE DROPDOWN --- */
+
 
 .desktop-actions {
   display: flex;

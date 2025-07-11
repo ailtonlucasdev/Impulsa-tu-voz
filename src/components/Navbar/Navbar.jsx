@@ -2,9 +2,23 @@
 
 import React, { useState } from 'react';
 import './Navbar.css'; 
-import { FaCog, FaBars, FaTimes } from 'react-icons/fa';
+import { FaCog, FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';
 
-// A Navbar agora recebe todas as funções de navegação
+// Dados para os menus dropdown
+const courseCategories = [
+  { name: 'Habilidades Digitales', filterKey: 'tecnologia' },
+  { name: 'Validación y Cursos Técnicos', filterKey: 'educacao' },
+  { name: 'Lenguajes para el Éxito', filterKey: 'linguagens' },
+  { name: 'Gastronomía y Negocios', filterKey: 'culinaria' },
+];
+
+const supportCategories = [
+  { name: 'Apoyo Jurídico', filterKey: 'juridico' },
+  { name: 'Hospitales', filterKey: 'hospitales' },
+  { name: 'Apoyo Social', filterKey: 'social' },
+  { name: 'Guarderías', filterKey: 'guarderias' },
+];
+
 function Navbar({ 
   onNavigateToHome,
   onNavigateToCourses,
@@ -15,25 +29,12 @@ function Navbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Funções para garantir que o menu fecha antes de qualquer ação
-  const handleLoginClick = () => {
-    setIsMenuOpen(false);
-    onLoginClick();
-  };
-
-  const handleRegisterClick = () => {
-    setIsMenuOpen(false);
-    onRegisterClick();
-  };
+  const handleLoginClick = () => { setIsMenuOpen(false); onLoginClick(); };
+  const handleRegisterClick = () => { setIsMenuOpen(false); onRegisterClick(); };
   
-  // Funções para navegação, que também fecham o menu mobile
   const handleNavigate = (navigationFunc, category = null) => {
     setIsMenuOpen(false);
-    if (category) {
-      navigationFunc(category);
-    } else {
-      navigationFunc();
-    }
+    navigationFunc(category);
   };
 
   return (
@@ -45,18 +46,36 @@ function Navbar({
 
         <nav className="desktop-nav">
           <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
-          <a onClick={() => handleNavigate(onNavigateToCourses)}>Cursos</a>
-          {/* Para 'Apoyo', passamos a categoria padrão 'juridico' para abrir a página */}
-          <a onClick={() => handleNavigate(onNavigateToSupport, 'juridico')}>Apoyo</a>
-          <a onClick={() => { /* Ação para 'Sobre Nosotras' virá no futuro */ }}>Sobre Nosotras</a>
+          
+          <div className="nav-item">
+            <span className="nav-item-link">Cursos <FaAngleDown size={12} /></span>
+            <ul className="dropdown-menu">
+              {courseCategories.map(cat => (
+                <li key={cat.filterKey} className="dropdown-item" onClick={() => handleNavigate(onNavigateToCourses, cat.filterKey)}>
+                  {cat.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="nav-item">
+            <span className="nav-item-link">Apoyo <FaAngleDown size={12} /></span>
+            <ul className="dropdown-menu">
+              {supportCategories.map(cat => (
+                <li key={cat.filterKey} className="dropdown-item" onClick={() => handleNavigate(onNavigateToSupport, cat.filterKey)}>
+                  {cat.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a onClick={() => { /* Ação futura */ }}>Sobre Nosotras</a>
         </nav>
         
         <div className="desktop-actions">
           <button className="nav-button secondary" onClick={onLoginClick}>Iniciar sesión</button>
           <button className="nav-button primary" onClick={onRegisterClick}>Crear cuenta</button>
-          <a href="#" className="settings-icon">
-            <FaCog size={28} />
-          </a>
+          <a href="#" className="settings-icon"><FaCog size={28} /></a>
         </div>
 
         <div className="menu-icon" onClick={toggleMenu}>
@@ -64,9 +83,10 @@ function Navbar({
         </div>
       </div>
 
+      {/* O menu mobile permanece o mesmo por simplicidade, levando para as páginas principais */}
       <div className={isMenuOpen ? 'mobile-menu active' : 'mobile-menu'}>
         <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
-        <a onClick={() => handleNavigate(onNavigateToCourses)}>Cursos</a>
+        <a onClick={() => handleNavigate(onNavigateToCourses, null)}>Cursos</a>
         <a onClick={() => handleNavigate(onNavigateToSupport, 'juridico')}>Apoyo</a>
         <a onClick={() => { /* Ação futura */ }}>Sobre Nosotras</a>
         <hr className="mobile-menu-divider" />
