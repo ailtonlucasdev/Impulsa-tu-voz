@@ -15,7 +15,6 @@ const mockCourses = [
   { id: 8, title: 'Curso habilidade de Artesanato', rating: '4.7' },
 ];
 
-// 1. O componente agora recebe a prop 'onNavigate'
 function RecommendedCourses({ onNavigate }) {
   return (
     <section className="courses-section">
@@ -27,8 +26,8 @@ function RecommendedCourses({ onNavigate }) {
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
-        {/* 2. O onClick do botão agora chama a função 'onNavigate' recebida */}
-        <button className="show-all-button" onClick={onNavigate}>
+        {/* CORREÇÃO: O onClick agora chama a função 'onNavigate' passando 'null' */}
+        <button className="show-all-button" onClick={() => onNavigate(null)}>
           Mostrar todos los cursos
         </button>
       </div>
