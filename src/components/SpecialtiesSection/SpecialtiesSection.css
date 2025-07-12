@@ -4,24 +4,13 @@
   padding: 4rem 2rem;
   
   /* --- Propriedades da Imagem de Fundo --- */
-  
-  /* 1. Coloque o caminho para a sua imagem aqui */
-  background-image: url('/src/assets/impulsa\ tu\ voz\ -\ bg\ -\ full\ quality.jpg');
-  
-  /* 2. Garante que a imagem cubra toda a área, sem distorcer */
+  background-image: linear-gradient(rgba(247, 245, 250, 0.85), rgba(247, 245, 250, 0.10)), url('/src/assets/impulsa\ tu\ voz\ -\ bg\ -\ full\ quality.jpg');
   background-size: cover;
-  
-  /* 3. Centraliza a imagem, para que o ponto principal fique visível */
   background-position: center center;
-  
-  /* 4. Impede que a imagem se repita */
   background-repeat: no-repeat;
-  
-  /* 5. (Opcional) Cria um efeito de parallax ao rolar a página */
   background-attachment: fixed; 
 }
 
-/* O resto do seu CSS para .specialties-header, .specialties-grid, etc., continua o mesmo... */
 .specialties-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -29,4 +18,52 @@
   margin-left: auto;
   margin-right: auto;
 }
-/* ... etc ... */
+
+.specialties-header .pre-title {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.specialties-header h2 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+/* --- Estilos da Grade Restaurados --- */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.specialty-card {
+  background-color: rgba(225, 190, 231, 0.9); /* Lilás com leve transparência */
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil para destacar */
+}
+
+.specialty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.specialty-icon {
+  color: #5E3A52;
+  margin-bottom: 1rem;
+}
+
+.specialty-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5E3A52;
+}
