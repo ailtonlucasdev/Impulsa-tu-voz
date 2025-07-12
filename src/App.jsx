@@ -6,13 +6,13 @@ import './App.css';
 import HomePage from './pages/HomePage.jsx';
 import CoursesPage from './pages/CoursesPage.jsx';
 import SupportPage from './pages/SupportPage.jsx';
+import SettingsPage from './pages/SettingsPage.jsx'; // Importa a nova página
 import RegisterModal from './components/RegisterModal/RegisterModal.jsx';
 import LoginModal from './components/LoginModal/LoginModal.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [supportCategory, setSupportCategory] = useState(null);
-  // Novo estado para a categoria de curso
   const [courseCategory, setCourseCategory] = useState(null);
 
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
@@ -32,34 +32,35 @@ function App() {
     openRegisterModal();
   };
 
-  // Funções de navegação atualizadas
   const navigateToHome = () => setCurrentPage('home');
-  
   const navigateToCourses = (category) => {
-    setCourseCategory(category); // Guarda a categoria de curso
+    setCourseCategory(category);
     setCurrentPage('courses');
   };
-
   const navigateToSupport = (category) => {
     setSupportCategory(category);
     setCurrentPage('support');
   };
+  // Nova função de navegação para as configurações
+  const navigateToSettings = () => setCurrentPage('settings');
 
   const renderPage = () => {
     const navProps = {
       onNavigateToHome: navigateToHome,
       onNavigateToCourses: navigateToCourses,
       onNavigateToSupport: navigateToSupport,
+      onNavigateToSettings: navigateToSettings, // Passa a nova função
       onLoginClick: openLoginModal,
       onRegisterClick: openRegisterModal,
     };
 
     switch (currentPage) {
       case 'courses':
-        // Passa a categoria de curso para a página
         return <CoursesPage {...navProps} category={courseCategory} />;
       case 'support':
         return <SupportPage {...navProps} category={supportCategory} />;
+      case 'settings': // Adiciona o case para a nova página
+        return <SettingsPage {...navProps} />;
       case 'home':
       default:
         return <HomePage {...navProps} />;

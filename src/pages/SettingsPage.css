@@ -1,0 +1,9 @@
+/* src/pages/SettingsPage.css */
+
+.settings-page-main {
+  padding-top: 120px; /* Espaço para a navbar e um respiro */
+  min-height: calc(100vh - 200px); /* Garante que o footer fique embaixo */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+}

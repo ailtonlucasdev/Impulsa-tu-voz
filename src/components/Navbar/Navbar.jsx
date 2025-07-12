@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import './Navbar.css'; 
-import { FaCog, FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';
+// Importa os novos ícones
+import { FaCog, FaBars, FaTimes, FaAngleDown, FaGlobe, FaBell } from 'react-icons/fa';
 
-// Dados para os menus dropdown
 const courseCategories = [
   { name: 'Habilidades Digitales', filterKey: 'tecnologia' },
   { name: 'Validación y Cursos Técnicos', filterKey: 'educacao' },
@@ -19,15 +19,21 @@ const supportCategories = [
   { name: 'Guarderías', filterKey: 'guarderias' },
 ];
 
+// Componente da Navbar atualizado
 function Navbar({ 
   onNavigateToHome,
   onNavigateToCourses,
   onNavigateToSupport,
+  onNavigateToSettings, // Recebe a nova função
   onLoginClick, 
   onRegisterClick 
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Novo estado para o menu de notificações
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleNotifications = () => setIsNotificationsOpen(!isNotificationsOpen);
 
   const handleLoginClick = () => { setIsMenuOpen(false); onLoginClick(); };
   const handleRegisterClick = () => { setIsMenuOpen(false); onRegisterClick(); };
@@ -46,7 +52,6 @@ function Navbar({
 
         <nav className="desktop-nav">
           <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
-          
           <div className="nav-item">
             <span className="nav-item-link">Cursos <FaAngleDown size={12} /></span>
             <ul className="dropdown-menu">
@@ -57,7 +62,6 @@ function Navbar({
               ))}
             </ul>
           </div>
-
           <div className="nav-item">
             <span className="nav-item-link">Apoyo <FaAngleDown size={12} /></span>
             <ul className="dropdown-menu">
@@ -68,14 +72,27 @@ function Navbar({
               ))}
             </ul>
           </div>
-
           <a onClick={() => { /* Ação futura */ }}>Sobre Nosotras</a>
         </nav>
         
         <div className="desktop-actions">
           <button className="nav-button secondary" onClick={onLoginClick}>Iniciar sesión</button>
           <button className="nav-button primary" onClick={onRegisterClick}>Crear cuenta</button>
-          <a href="#" className="settings-icon"><FaCog size={28} /></a>
+          
+          {/* NOVO: Container para os ícones de utilidade */}
+          <div className="navbar-user-actions">
+            <div className="action-icon">
+              <FaGlobe />
+            </div>
+            <div className="action-icon" onClick={toggleNotifications}>
+              <FaBell />
+              {/* Menu de Notificações */}
+              {isNotificationsOpen && <NotificationsMenu />}
+            </div>
+            <div className="action-icon" onClick={() => handleNavigate(onNavigateToSettings)}>
+              <FaCog />
+            </div>
+          </div>
         </div>
 
         <div className="menu-icon" onClick={toggleMenu}>
@@ -83,7 +100,6 @@ function Navbar({
         </div>
       </div>
 
-      {/* O menu mobile permanece o mesmo por simplicidade, levando para as páginas principais */}
       <div className={isMenuOpen ? 'mobile-menu active' : 'mobile-menu'}>
         <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
         <a onClick={() => handleNavigate(onNavigateToCourses, null)}>Cursos</a>
@@ -96,6 +112,48 @@ function Navbar({
         </div>
       </div>
     </header>
+  );
+}
+
+// NOVO: Componente para o menu de notificações
+function NotificationsMenu() {
+  const [filter, setFilter] = useState('all'); // 'all', 'read', 'unread'
+  // Mock de notificações
+  const notifications = [
+    { id: 1, text: 'Tu curso "Portugués para el Día a Día" comienza mañana.', time: 'hace 5 min', read: false },
+    { id: 2, text: '¡Bienvenida a Impulsa Tu Voz! Completa tu perfil.', time: 'hace 1 día', read: true },
+  ];
+
+  const filteredNotifications = notifications.filter(n => {
+    if (filter === 'read') return n.read;
+    if (filter === 'unread') return !n.read;
+    return true;
+  });
+
+  return (
+    <div className="notifications-dropdown">
+      <div className="notifications-header">
+        <h4>Notificaciones</h4>
+        <div className="notifications-filter">
+          <button onClick={() => setFilter('all')} className={filter === 'all' ? 'active' : ''}>Todas</button>
+          <button onClick={() => setFilter('unread')} className={filter === 'unread' ? 'active' : ''}>No leídas</button>
+        </div>
+      </div>
+      <ul className="notifications-list">
+        {filteredNotifications.length > 0 ? (
+          filteredNotifications.map(n => (
+            <li key={n.id} className={`notification-item ${!n.read ? 'unread' : ''}`}>
+              <p>{n.text}</p>
+              <span>{n.time}</span>
+            </li>
+          ))
+        ) : (
+          <div className="notifications-empty">
+            <p>No hay notificaciones.</p>
+          </div>
+        )}
+      </ul>
+    </div>
   );
 }
 
