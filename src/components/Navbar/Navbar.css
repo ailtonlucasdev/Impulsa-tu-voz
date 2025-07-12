@@ -116,23 +116,21 @@
   background-color: white;
 }
 
-/* NOVO: Container para os ícones de utilidade */
 .navbar-user-actions {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   margin-left: 1rem;
-  position: relative; /* Para o dropdown de notificações */
+  position: relative;
 }
 
 .action-icon {
   color: #424242;
   cursor: pointer;
-  font-size: 1.5rem; /* Aumenta o tamanho dos ícones */
+  font-size: 1.5rem;
   position: relative;
 }
 
-/* NOVO: Estilos para o menu de notificações */
 .notifications-dropdown {
   position: absolute;
   top: 150%;
@@ -142,6 +140,7 @@
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   overflow: hidden;
+  z-index: 102;
 }
 
 .notifications-header {
@@ -205,6 +204,10 @@
   color: #999;
 }
 
+.menu-icon, .mobile-menu {
+  display: none;
+}
+
 /* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 992px) {
   .desktop-nav,
@@ -250,5 +253,10 @@
     gap: 1rem;
     width: 80%;
     max-width: 300px;
+  }
+  .mobile-menu .navbar-user-actions {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
   }
 }
