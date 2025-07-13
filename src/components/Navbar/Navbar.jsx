@@ -30,7 +30,10 @@ function Navbar({
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleNotifications = () => setIsNotificationsOpen(!isNotificationsOpen);
+  const toggleNotifications = (e) => {
+    e.stopPropagation();
+    setIsNotificationsOpen(!isNotificationsOpen);
+  };
 
   const handleLoginClick = () => { setIsMenuOpen(false); onLoginClick(); };
   const handleRegisterClick = () => { setIsMenuOpen(false); onRegisterClick(); };
@@ -47,7 +50,6 @@ function Navbar({
           <a onClick={() => handleNavigate(onNavigateToHome)}>NOSSOLOGO</a>
         </div>
 
-        {/* Navegação principal do Desktop */}
         <nav className="desktop-nav">
           <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
           <div className="nav-item">
@@ -73,7 +75,6 @@ function Navbar({
           <a onClick={() => { /* Ação futura */ }}>Sobre Nosotras</a>
         </nav>
         
-        {/* Ações do Desktop (Botões + Ícones) */}
         <div className="desktop-actions">
           <button className="nav-button secondary" onClick={onLoginClick}>Iniciar sesión</button>
           <button className="nav-button primary" onClick={onRegisterClick}>Crear cuenta</button>
@@ -87,13 +88,11 @@ function Navbar({
           </div>
         </div>
 
-        {/* Ícone do Menu Mobile */}
         <div className="menu-icon" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes size={25} /> : <FaBars size={25} />}
         </div>
       </div>
 
-      {/* Menu Overlay Mobile */}
       <div className={isMenuOpen ? 'mobile-menu active' : 'mobile-menu'}>
         <a onClick={() => handleNavigate(onNavigateToHome)}>Inicio</a>
         <a onClick={() => handleNavigate(onNavigateToCourses, null)}>Cursos</a>
@@ -104,7 +103,6 @@ function Navbar({
           <button className="nav-button secondary" onClick={handleLoginClick}>Iniciar sesión</button>
           <button className="nav-button primary" onClick={handleRegisterClick}>Crear cuenta</button>
         </div>
-        {/* Ícones de Ação no Menu Mobile */}
         <div className="navbar-user-actions">
            <FaGlobe className="action-icon" />
            <FaBell className="action-icon" onClick={toggleNotifications}/>
@@ -115,7 +113,6 @@ function Navbar({
   );
 }
 
-// Componente para o menu de notificações (sem alterações)
 function NotificationsMenu() {
   const [filter, setFilter] = useState('all');
   const notifications = [
